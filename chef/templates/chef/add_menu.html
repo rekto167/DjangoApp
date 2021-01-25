@@ -23,16 +23,15 @@
 
     <div class="form-group">
         <label for="{{form.food_cat.id_for_label}}">Kategori Menu :</label>
-        <input type="text" class="form-control" name="{{form.food_cat.name}}" maxlength="{{form.food_cat.max}}" required id="{{form.food_cat.id_for_label}}">
-        {# {{form.food_cat}} #}
+        
+        <input type="select" class="form-select" name="{{form.food_cat.name}}" maxlength="{{form.food_cat.max}}" required id="{{form.food_cat.id_for_label}}">
     </div>
 
     <div class="form-group">
         <label for="{{form.food_price.id_for_label}}">Harga :</label>
-        <input type="text" class="form-control" name="{{form.food_price.name}}" maxlength="{{form.food_price.max}}" required id="{{form.food_price.id_for_label}}">
+        <input type="text" class="form-control " name="{{form.food_price.name}}" maxlength="{{form.food_price.max}}" required id="{{form.food_price.id_for_label}}">
     </div>
 
-    {# <input type="submit" class="btn btn-primary" name="Tambah"> #}
     <button type="submit" class="btn btn-primary">Tambah</button>
     <a class="btn btn-danger" href="{% url 'chef:listmenu' %}">Batal</a>
   </form>

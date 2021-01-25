@@ -14,14 +14,55 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'chef:listmenu' %}">Menu</a>
+        <a class="nav-link" href="{% url 'chef:listmenu' 1 %}">Menu</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'chef:listmenu' %}">Ordering</a>
+        <a class="nav-link" href="{% url 'chef:listmenu' 1 %}">Ordering</a>
       </li>
   </div>
 </nav>
   <a class="btn btn-primary mt-5 mb-3 ml-5" href="{% url 'chef:addmenu' %}">Tambah Menu</a>
+  {{category_list}}
+  {% if is_paginated %}
+    <nav aria-label="menuPage" class="ml-5">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="{% url 'chef:listmenu' page_obj.previous_page_number%}">Previous</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+        {% endif %}
+
+        {% for page in paginator.page_range %}
+          
+          {% if page is page_obj.number %}
+            <li class="page-item active" aria-current="page">
+              <span class="page-link" href="#">{{page}}</span>
+            </li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="{% url 'chef:listmenu' page%}">{{page}}</a></li>
+          {% endif %}
+            
+
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="{% url 'chef:listmenu' page_obj.next_page_number%}">Next</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+          </li>
+        {% endif %}
+
+      </ul>
+    </nav>
+  {% endif %}
+    
   <ul>
     {% for menu in object_list %}
       <div class="card float-left ml-3" style="width: 18rem; height: 22rem">
