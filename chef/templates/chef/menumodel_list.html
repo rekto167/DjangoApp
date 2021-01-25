@@ -36,15 +36,19 @@
     </form>
   </div>
 </nav>
-  <a class="btn btn-primary mt-5 ml-3" href="{% url 'chef:addmenu' %}">Tambah Menu</a>
+  <a class="btn btn-primary mt-5 mb-3 ml-5" href="{% url 'chef:addmenu' %}">Tambah Menu</a>
   <ul>
     {% for menu in object_list %}
-      <li>{{menu.food_name}}</li>
-      <ul>
-          <li>
-              <img style="width:500px" src="{{menu.food_pic.url}}" alt="">
-          </li>
-      </ul>
+      <div class="card float-left ml-3" style="width: 18rem; height: 20rem">
+        <img class="card-img-top mx-auto mt-2 " src="{{menu.food_pic.url}}" alt="{{menu.food_pic}}" style="width: 10rem; height:10rem">
+        <div class="card-body">
+          <h3 class="card-text text-center">{{menu.food_name}}</h3>
+          <div class="container mt-5">
+            <img src="/static/img/pricetag.svg" style="width:20px; height:20px">
+            <span class="text-danger text-center font-weight-bold">{{menu.food_price}}</span>
+          </div>
+        </div>
+      </div>
     {% endfor %}
   </ul>
 {% endblock content %}

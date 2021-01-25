@@ -10,6 +10,6 @@ from .views import (
 app_name = 'chef'
 urlpatterns = [
     path('addmenu/', AddMenu.as_view(), name='addmenu'),
-    path('listmakanan/', MenuList.as_view(), name='listmakanan'),
+    path('listmenu/', MenuList.as_view(), name='listmenu'),
     path('', IndexChefView.as_view(), name='index'),
 ]

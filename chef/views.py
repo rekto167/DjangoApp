@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View, TemplateView, ListView, CreateView
 from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 # Create your views here.
 
 from .models import MenuModel
@@ -28,11 +28,13 @@ class MenuList(ListView):
 
 
 class AddMenu(CreateView):
+    model = MenuModel
     form_class = MenuForm
     template_name = "chef/add_menu.html"
+    # success_url = reverse_lazy('chef:listmakanan')
 
-    def form_valid(self, form):
-        food_name = form.save(commit=False)
-        image = form.cleaned_data('food_pic')
-        obj.food_name = self.request.food_name
-        food_name.save()
+    # def form_valid(self, form):
+    #     food_name = form.save(commit=False)
+    #     image = form.cleaned_data('food_pic')
+    #     obj.food_name = self.request.food_name
+    #     food_name.save()
