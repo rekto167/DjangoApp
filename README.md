@@ -1,5 +1,5 @@
 # Website Aplikasi Pengorderan Menu
-aplikasi django
+Ini tuh Web Apps buatan ku sendiri make Django3, dan gunanya ntar untuk skripsian ku. Ntar bakal di upload juga kok project lengkapnya di mari.
 # Dibuat oleh : Renal Eki Riyanto
 <h3>Biodata dikit dong :</h3>
 Nama Lengkap        : Renal Eki Riyanto <br>
