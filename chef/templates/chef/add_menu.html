@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
+{% block judul %}
+  {{page_title}}
+{% endblock judul %}
+
 {% block content %}
+<div class="container">
   <h1>Tambah Menu</h1>
   <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
@@ -29,5 +34,7 @@
 
     {# <input type="submit" class="btn btn-primary" name="Tambah"> #}
     <button type="submit" class="btn btn-primary">Tambah</button>
+    <a class="btn btn-danger" href="{% url 'chef:listmenu' %}">Batal</a>
   </form>
+</div>
 {% endblock content %}

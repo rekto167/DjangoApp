@@ -24,6 +24,7 @@ class MenuList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['page_title'] = 'Daftar Menu'
         return context
 
 
@@ -31,6 +32,11 @@ class AddMenu(CreateView):
     model = MenuModel
     form_class = MenuForm
     template_name = "chef/add_menu.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'Tambah Menu'
+        return context
     # success_url = reverse_lazy('chef:listmakanan')
 
     # def form_valid(self, form):
